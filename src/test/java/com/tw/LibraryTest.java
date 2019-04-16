@@ -4,11 +4,13 @@ package com.tw;/*
 
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class LibraryTest {
     @Test
@@ -27,6 +29,22 @@ public class LibraryTest {
         when(mockedList.get(0)).thenReturn(value);
 
         assertEquals(mockedList.get(0), value);
+
+    }
+
+    @Test
+    public void testAddStudent() {
+        Library library = mock(Library.class);
+        library.addStudent();
+        verify(library,times(1)).addStudent();
+    }
+
+    @Test
+    public void testPrintInfo() {
+        Library library = mock(Library.class);
+        library.printInfo();
+        verify(library,times(1)).printInfo();
+
 
     }
 
